@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+/* Custom Properties */
+:root {
+  --clr-primary-400: hsl(263, 55%, 52%); /* Moderate Violet */
+  --clr-secondary-400: hsl(217, 19%, 35%); /* Very Dark Grayish Blue*/
+  --clr-secondary-500: hsl(219, 29%, 14%); /*Very Dark Blackish Blue */
+  --clr-neutral-100: hsl(0, 0%, 100%); /* White */
+  --clr-neutral-200: hsl(210, 46%, 95%); /* Light Grayish Blue */
+  --clr-neutral-300: hsl(0, 0%, 81%); /* Light Gray */
+
+  /* Verified Graduate will have same color as person's name but with 50% opacity, quoted paragraphs are 70% opacity 
+  We can try putting an hsla in testimonial, then setting a custom property in their respective id*/
+
+  --fs-heading: 1.375rem;
+  --fs-secondary: 1rem;
+  --fs-body: .8125rem;
+  --ff-primary: 'Barlow Semi Condensed', sans-serif;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+}
+
+/* Utility Classes */
+.flex-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.bg-primary-400 {
+  background-color: var(--clr-primary-400);
+}
+.bg-primary-600 {
+  background-color: hsl(263, 55%, 72%);
+}
+.bg-neutral-300 {
+  background-color: var(--clr-neutral-300);
+}
+
+/* General Styling */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid limegreen !important; */
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-body);
+  background-color: var(--clr-neutral-200);
+  line-height: 1.5;
+  display: grid;
+  place-content: center;
+}
+
+img {
+  width: 2.75rem;
+  border-radius: 100vmax;
+  padding: .125rem;
+}
+
+/* Styling */
+.testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+  'one'
+  'two'
+  'three'
+  'four'
+  'five';
+
+  padding-block: 2rem;
+  width: min(90%, 70rem);
+  margin-inline: auto;
+}
+
+.testimonial {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(217, 19%, 35%, .35);
+}
+.testimonial:nth-child(1) {
+  grid-area: one;
+  background-color: var(--clr-primary-400);
+  color: var(--clr-neutral-100);
+  background-image: url("./images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position: 80% top;
+}
+.testimonial:nth-child(2) {
+  grid-area: two;
+  background-color: var(--clr-secondary-400);
+  color: var(--clr-neutral-100);
+}
+.testimonial:nth-child(3) {
+  grid-area: three;
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-secondary-500);
+}
+.testimonial:nth-child(4) {
+  grid-area: four;
+  background-color: var(--clr-secondary-500);
+  color: var(--clr-neutral-100);
+}
+.testimonial:nth-child(5) {
+  grid-area: five;
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-secondary-500);
+}
+.testimonial > *:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.name, .card__heading {
+  font-weight: var(--fw-semibold);
+}
+.name {
+  font-size: var(--fs-secondary);
+}
+.card__heading {
+  font-size: var(--fs-heading);
+}
+
+.title {
+  opacity: 50%;
+}
+
+.card__content {
+  opacity: 70%;
+}
+
+.attribution {
+  font-size: 11px; 
+  text-align: center;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media (min-width: 33em) {
+  .testimonial-grid {
+    grid-template-areas:
+    'one one'
+    'two three'
+    'five five'
+    'four four';
+  }
+}
+
+@media (min-width: 40em) {
+  .testimonial-grid {
+    grid-template-areas:
+    'one one'
+    'two five'
+    'three five'
+    'four four';
+  }
+}
+
+@media (min-width: 47em) {
+  .testimonial-grid {
+    grid-template-areas:
+    'one one two'
+    'five fie five'
+    'three four four';
+  }
+}
+
+@media (min-width: 54em) {
+  .testimonial-grid {
+    grid-template-areas:
+    'one one two five'
+    'three four four five';
+  }
+}
